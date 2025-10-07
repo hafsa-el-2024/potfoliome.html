@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hafsa El Ouassif — Développeuse Web Full Stack</title>
+  <meta name="description" content="Portfolio professionnel de Hafsa El Ouassif — Développeuse Web Full Stack, étudiante en BTS.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0f1724; --muted:#9aa7bf; --primary:#06b6d4; --accent:#0ea5e9; --text:#e6eef8;
+      --glass: rgba(255,255,255,0.03);
+    }
+    .light-theme {
+      --bg:#f6f8fb; --card:#ffffff; --muted:#4b5563; --primary:#0284c7; --accent:#0ea5e9; --text:#0f1724;
+      --glass: rgba(0,0,0,0.03);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:var(--bg);color:var(--text);transition:background .4s,color .4s}
+    a{color:inherit;text-decoration:none}
+    .container{width:clamp(300px,88vw,1100px);margin:0 auto;padding:22px}
+
+    /* NAV */
+    header{position:sticky;top:14px;z-index:40;background:var(--glass);backdrop-filter:blur(6px);border-radius:14px;margin:14px auto;box-shadow:0 6px 24px rgba(0,0,0,0.3);}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary),var(--accent));font-weight:700;color:#fff;}
+    .brand h1{font-size:16px;margin:0;}
+    nav.desktop{display:flex;gap:12px;}
+    nav.desktop a{color:var(--muted);padding:8px 10px;border-radius:8px;font-weight:600;}
+    nav.desktop a:hover{background:var(--glass);color:var(--text);}
+    .actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .btn{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.1);padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700;transition:.3s}
+    .btn.primary{background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;border:0}
+    .btn.cv{border:1px solid var(--primary);color:var(--primary)}
+    .btn.cv:hover{background:var(--primary);color:#fff}
+    .hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:20px;cursor:pointer}
+    .theme-toggle{background:transparent;border:0;color:var(--muted);font-size:20px;cursor:pointer;}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:center;margin-top:26px;}
+    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);}
+    .intro h2{font-size:28px;margin-bottom:8px}
+    .muted{color:var(--muted);font-size:14px;line-height:1.6}
+
+    /* Avatar */
+    .profile{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;}
+    .avatar{width:160px;height:160px;border-radius:999px;overflow:hidden;border:4px solid rgba(255,255,255,0.04);box-shadow:0 8px 30px rgba(10,14,22,0.6);}
+    .avatar img{width:100%;height:100%;object-fit:cover;}
+
+    section{margin-top:22px}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+    .section-title h3{margin:0;font-size:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .skill-bar{background:rgba(255,255,255,0.1);height:10px;border-radius:999px;overflow:hidden}
+    .skill-bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--accent))}
+
+    .project{padding:14px;border-radius:10px;background:var(--card)}
+    .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--muted)}
+
+    input,textarea{width:100%;background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--text);padding:12px;border-radius:10px;outline:none}
+    textarea{min-height:120px;resize:vertical}
+    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:28px}
+
+    @media(max-width:980px){.hero{grid-template-columns:1fr}nav.desktop{display:none}.hamburger{display:block}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">H</div>
+      <div>
+        <h1>Hafsa El Ouassif</h1>
+        <div style="font-size:13px;color:var(--muted)">Développeuse Web Full Stack — Étudiante en BTS</div>
+      </div>
+    </div>
+
+    <nav class="desktop">
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#formations">Formations</a>
+      <a href="#experience">Expériences</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button class="theme-toggle" id="themeToggle" title="Changer de thème">🌙</button>
+      <button class="btn primary" onclick="scrollToSection('contact')">Me contacter</button>
+      <button class="hamburger" id="hamburger">☰</button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="container" style="display:none">
+    <nav style="display:flex;flex-direction:column;gap:8px">
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#formations">Formations</a>
+      <a href="#experience">Expériences</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="card intro">
+      <h2>Bonjour — je suis <span style="color:var(--accent)">Hafsa El Ouassif</span></h2>
+      <p class="muted">Développeuse Web Full Stack & étudiante en BTS. je maîtrise les technologies Front-End (HTML, CSS, JavaScript) et Back-End (PHP, MySQL) pour créer des applications dynamiques et performantes.Curieuse et autodidacte, j'aime relever les défis techniques et explorer de nouvelles solutions innovantes</p>
+      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn primary" onclick="scrollToSection('projects')">Voir mes projets</button>
+        <button class="btn" onclick="scrollToSection('about')">En savoir plus</button>
+      </div>
+    </div>
+
+    <aside>
+      <div class="card profile">
+        <div class="avatar"><img src="./67.JPG" alt="Hafsa El Ouassif"></div>
+        <strong>Hafsa El Ouassif</strong>
+        <div class="muted">Développeuse Web Full Stack</div>
+        <div class="muted">Étudiante en BTS</div>
+        <a href="CV hafsa elouassif.pdf" download class="btn cv" style="margin-top:10px;">📄 Télécharger CV</a>
+      </div>
+    </aside>
+  </section>
+
+  <!-- (sections About, Skills, Formations, Expériences, Projects, Contact identiques à la version précédente) -->
+  <section id="about"><div class="section-title"><h3>À propos</h3></div><div class="card"><p class="muted">Passionnée par le développement web, j’aime transformer les idées en projets concrets et efficaces.</p></div></section>
+  <section id="skills"><div class="section-title"><h3>Compétences</h3></div><div class="grid-3"><div class="card"><h4>Frontend</h4><p class="muted">HTML, CSS, JavaScript</p><div class="skill-bar"><i style="width:90%"></i></div></div><div class="card"><h4>Backend</h4><p class="muted">PHP, MySQL</p><div class="skill-bar"><i style="width:80%"></i></div></div><div class="card"><h4>Outils</h4><p class="muted">GitHub, VSCode, Figma,Xampp</p><div class="skill-bar"><i style="width:75%"></i></div></div></div></section>
+  <section id="formations"><div class="section-title"><h3>Formations</h3></div><div class="card"><p class="muted">BTS Informatique — en cours.</p></div></section>
+  <section id="experience"><div class="section-title"><h3>Expériences professionnelles</h3></div><div class="card"><p class="muted">Stage de développement web — conception d’une application de gestion.</p></div></section>
+  <section id="projects"><div class="section-title"><h3>Projets</h3></div><div class="grid-3"><div class="project"><h4>ChronoChantier</h4><p class="muted">Application de gestion de chantiers.</p></div><div class="project"><h4>Portfolio personnel</h4><p class="muted">Ce site même, conçu avec HTML, CSS et JavaScript.</p></div></div></section>
+  <section id="contact"><div class="section-title"><h3>Contact</h3></div><div class="card"><form id="contactForm" onsubmit="submitForm(event)"><input type="text" id="name" placeholder="Nom" required><input type="email" id="email" placeholder="Email" required><textarea id="message" placeholder="Message..." required></textarea><button class="btn primary" type="submit">Envoyer</button><div id="formMsg" style="margin-top:8px;color:var(--muted)"></div></form></div></section>
+  <footer>© <span id="year"></span> Hafsa El Ouassif</footer>
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const hamburger=document.getElementById('hamburger');
+  const mobileMenu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',()=>{mobileMenu.style.display=mobileMenu.style.display==='none'?'block':'none';});
+
+  function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+  function submitForm(e){e.preventDefault();document.getElementById('formMsg').textContent='Message envoyé avec succès ✅';e.target.reset();}
+
+  function downloadCV(){
+    window.open('cv-hafsa-el-ouassif.pdf','_blank');
+  }
+
+  // Theme toggle
+  const themeToggle=document.getElementById('themeToggle');
+  const root=document.documentElement;
+  if(localStorage.getItem('theme')==='light'){root.classList.add('light-theme');themeToggle.textContent='☀️';}
+  themeToggle.addEventListener('click',()=>{
+    root.classList.toggle('light-theme');
+    const isLight=root.classList.contains('light-theme');
+    themeToggle.textContent=isLight?'☀️':'🌙';
+    localStorage.setItem('theme',isLight?'light':'dark');
+  });
+</script>
+</body>
+</html>
